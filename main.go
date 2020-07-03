@@ -66,8 +66,8 @@ func main() {
 	// encrypt message using public key
 	armor, err := helper.EncryptMessageArmored(*pubKey, msg)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(err, *pubKey)
 	}
 
-	log.Println(armor)
+	fmt.Println(armor)
 }
