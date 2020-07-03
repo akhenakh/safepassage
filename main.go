@@ -57,7 +57,7 @@ func main() {
 	for _, secret := range secrets {
 		senv := os.Getenv(secret)
 		if senv == "" {
-			senv = os.Getenv("SECRET_" + secret)
+			senv = os.Getenv(strings.ToLower("SECRET_" + secret))
 			if senv == "" {
 				log.Printf("can't find the secret named variable: %s\n", secret)
 				os.Exit(2)

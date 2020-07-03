@@ -9,6 +9,7 @@ steps:
 
   - name: extractor
     image: akhenakh/safepassage:1.0
+    pull: always
     environment:
       my_secret:
         from_secret: my_drone_secret
