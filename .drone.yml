@@ -14,11 +14,11 @@ steps:
       MY_SECRET:
         from_secret: my_drone_secret
     settings:
-      another_secret:
+      ANOTHER_SECRET:
         from_secret: my_other_drone_secret
       secrets:
         - MY_SECRET
-        - another_secret
+        - ANOTHER_SECRET
       pubkey: |
         -----BEGIN PGP PUBLIC KEY BLOCK-----
         Version: BCPG C# v1.6.1.0
