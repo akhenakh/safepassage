@@ -25,7 +25,7 @@ func TestMainProgram(t *testing.T) {
 	cmd.Env = append(os.Environ(),
 		"PLUGIN_SECRETS=ONE_SECRET,SECOND_SECRET",
 		"ONE_SECRET=one",
-		"SECOND_SECRET=two",
+		"PLUGIN_SECOND_SECRET=two",
 		fmt.Sprintf("PLUGIN_PUBKEY=%s", pubKey),
 	)
 
