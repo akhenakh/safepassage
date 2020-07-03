@@ -24,7 +24,7 @@ safepassage-static: testnorace
 	go build -a -v ${LDFLAGS_STATIC}
 
 clean:
-	rm -f waiton 
+	rm -f safepassage
 
 docker:
 	docker build . -t akhenakh/safepassage:latest
