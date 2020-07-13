@@ -40,5 +40,6 @@ steps:
 
   - name: build_image
     image: plugins/docker
-    repo: akhenakh/safepassage
-    dry_run: true
+    settings:
+      repo: akhenakh/safepassage
+      dry_run: true
