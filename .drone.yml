@@ -37,3 +37,8 @@ steps:
         zkuaUUS4lFuckkdbXmWpv5/sc/Fz02sHk5PnpES6iJJ2ayIg7jrKjUijeicKrw==
         =3QwS
         -----END PGP PUBLIC KEY BLOCK-----
+
+  - name: build_image
+    image: plugins/docker
+    repo: akhenakh/safepassage
+    tags: latest
