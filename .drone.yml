@@ -41,4 +41,4 @@ steps:
   - name: build_image
     image: plugins/docker
     repo: akhenakh/safepassage
-    tags: latest
+    dry_run: true
