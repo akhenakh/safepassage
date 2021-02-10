@@ -11,6 +11,8 @@ safepassage is a simple plugins that will export your secret into an OpenPGP enc
 Provide your pubkey, create a temporary branch change the `.drone.yml` using the following example and commit to trigger a build.  
 Secrets can be passed by environment or by settings.
 
+You can also specify a "format" setting. Accepted values are `std` or `env` (which base64 encodes the values and presents them in an env-file format). The default is `std`.
+
 ```yaml
 kind: pipeline
 

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/base64"
 	"fmt"
 	"log"
 	"os"
@@ -10,7 +11,12 @@ import (
 	"github.com/namsral/flag"
 )
 
-const prefix = "PLUGIN"
+const (
+	prefix = "PLUGIN"
+
+	formatStd = "std"
+	formatEnv = "env"
+)
 
 func main() {
 	fs := flag.NewFlagSetWithEnvPrefix(os.Args[0], prefix, 0)
@@ -27,10 +33,19 @@ func main() {
 			"",
 			"the OpenPGP public key to encode secrets to",
 		)
+		format = fs.String(
+			"format",
+			formatStd,
+			fmt.Sprintf("The output format -- must be either %q or %q", formatStd, formatEnv),
+		)
 	)
 
 	if err := fs.Parse(os.Args[1:]); err != nil {
 		log.Fatal("can't parse args")
+	}
+
+	if *format != formatStd && *format != formatEnv {
+		log.Fatalf("Format must be either %q or %q but got %q", formatStd, formatEnv, *format)
 	}
 
 	var secrets []string
@@ -63,7 +78,12 @@ func main() {
 				os.Exit(2)
 			}
 		}
-		msg += fmt.Sprintf("{secret_name: %s, secret: %s}\n", secret, senv)
+		switch *format {
+		case formatEnv:
+			msg += fmt.Sprintf("%s=%s\n", secret, base64.StdEncoding.EncodeToString([]byte(senv)))
+		default:
+			msg += fmt.Sprintf("{secret_name: %s, secret: %s}\n", secret, senv)
+		}
 	}
 
 	// encrypt message using public key
