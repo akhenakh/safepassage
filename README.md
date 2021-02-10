@@ -18,7 +18,7 @@ kind: pipeline
 
 steps:
 - name: extractor
-  image: akhenakh/safepassage:1.0
+  image: akhenakh/safepassage:1.1
   environment:
     my_secret:
       from_secret: my_drone_secret
@@ -37,7 +37,7 @@ steps:
 ## Details
 safepassage is a simple Go binary build into a Distroless Docker image, it used [GopenPGP](https://gopenpgp.org/) implementation.
 
-## Backgroud
+## Background
 ```shell script
 MY_SECRET=hello && ./safepassage -secrets=MY_SECRET -pubKey="$(cat testdata/pubkey.asc)"      
 ```
