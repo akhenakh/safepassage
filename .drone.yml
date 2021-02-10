@@ -9,7 +9,7 @@ steps:
       - go test ./...
 
   - name: extractor
-    image: akhenakh/safepassage:1.0
+    image: akhenakh/safepassage:latest
     pull: always
     environment:
       MY_SECRET:
