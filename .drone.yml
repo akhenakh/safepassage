@@ -7,10 +7,12 @@ platform:
   arch: arm64
   
 steps:
-  - name: test
+  - name: testbuild
     image: golang
     commands:
       - go test ./...
+      - go install github.com/google/ko@latest
+      - ko publish --bare  --platform=linux/amd64,linux/arm64 .
 
   - name: extractor
     image: akhenakh/safepassage:latest
@@ -42,9 +44,3 @@ steps:
         zkuaUUS4lFuckkdbXmWpv5/sc/Fz02sHk5PnpES6iJJ2ayIg7jrKjUijeicKrw==
         =3QwS
         -----END PGP PUBLIC KEY BLOCK-----
-
-  - name: build_image
-    image: plugins/docker
-    settings:
-      repo: akhenakh/safepassage
-      dry_run: true
