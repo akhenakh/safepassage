@@ -28,3 +28,6 @@ clean:
 
 docker:
 	docker build . -t akhenakh/safepassage:latest
+	
+ko:
+	ko publish --bare  --platform=linux/amd64,linux/arm64 .
