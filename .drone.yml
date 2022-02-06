@@ -13,7 +13,7 @@ steps:
       - go test ./...
       - go install github.com/google/ko@latest
       - ls /root/.docker/config
-      - ko publish --bare  --platform=linux/amd64,linux/arm64 .
+      - KO_DOCKER_REPO=akhenakh/safepassage && ko publish --bare  --platform=linux/amd64,linux/arm64 .
 
   - name: extractor
     image: akhenakh/safepassage:latest
