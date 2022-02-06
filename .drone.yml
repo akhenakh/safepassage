@@ -12,7 +12,7 @@ steps:
     commands:
       - go test ./...
       - go install github.com/google/ko@latest
-      - ls /root/.docker/config
+      - ls /root/.docker/config.json
       - KO_DOCKER_REPO=akhenakh/safepassage && ko publish --bare  --platform=linux/amd64,linux/arm64 .
 
   - name: extractor
