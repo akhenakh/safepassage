@@ -45,6 +45,6 @@ steps:
         zkuaUUS4lFuckkdbXmWpv5/sc/Fz02sHk5PnpES6iJJ2ayIg7jrKjUijeicKrw==
         =3QwS
         -----END PGP PUBLIC KEY BLOCK-----
----
+
 image_pull_secrets:
 - dockerconfigjson
